@@ -39,8 +39,11 @@ filesMiniAOD_Preliminary2017 = {
         '/store/mc/RunIIFall17MiniAOD/DY1JetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/MINIAODSIM/94X_mc2017_realistic_v10-v1/20000/001C74A0-B4D6-E711-BD4B-FA163EB4F61D.root',#94X
         ),
     
-    'data' : cms.untracked.vstring( 
-        '/store/data/Run2017B/SingleElectron/MINIAOD/17Nov2017-v1/40000/064D4B85-E9DB-E711-8B34-02163E019D0E.root',
+    'data' : cms.untracked.vstring(
+	'/store/data/Run2017D/SingleElectron/MINIAOD/31Mar2018-v1/90000/FEA33B7F-F838-E811-83FC-24BE05CECB81.root',
+	'/store/data/Run2017D/SingleElectron/MINIAOD/31Mar2018-v1/90000/FCD980ED-0B39-E811-B70F-EC0D9A0B32B0.root',
+	'/store/data/Run2017D/SingleElectron/MINIAOD/31Mar2018-v1/90000/F87B6AFD-6939-E811-8F72-0025905B85EC.root',
+        #'/store/data/Run2017B/SingleElectron/MINIAOD/17Nov2017-v1/40000/064D4B85-E9DB-E711-8B34-02163E019D0E.root',
         #        '/store/data/Run2017C/SingleElectron/MINIAOD/PromptReco-v1/000/299/368/00000/08588A8B-836D-E711-8ACF-02163E01A3AC.root',
         #        '/store/data/Run2017B/SingleElectron/MINIAOD/PromptReco-v1/000/297/050/00000/166F7BB0-3C56-E711-BD8B-02163E0145C5.root',     
         )

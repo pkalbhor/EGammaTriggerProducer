@@ -162,7 +162,7 @@ if varOptions.GT != "auto" :
 #from EgammaAnalysis.TnPTreeProducer.etc.tnpInputTestFiles_cff import filesMiniAOD_Preliminary2018 as inputs
 #if options['useAOD'] : from EgammaAnalysis.TnPTreeProducer.etc.tnpInputTestFiles_cff import filesAOD_23Sep2016 as inputs #switch to 2017 samples if want to cmsRun on AOD
 #if options['useAOD'] : 
-from EgammaAnalysis.TnPTreeProducer.etc.tnpInputTestFiles_cff import filesAOD_Preliminary2017 as inputs #switch to 2017 samples if want to cmsRun on AOD
+from EgammaAnalysis.TnPTreeProducer.etc.tnpInputTestFiles_cff import filesMiniAOD_Preliminary2017 as inputs #switch to 2017 samples if want to cmsRun on AOD
 #if options['useAOD'] : from EgammaAnalysis.TnPTreeProducer.etc.tnpInputTestFiles_cff import filesAOD_empty as inputs #switch to 2017 samples if want to cmsRun on AOD
     
 options['INPUT_FILE_NAME'] = inputs['data']
@@ -230,6 +230,7 @@ if options['DoRECO']    : process.tnpPairs_sequence *= process.tnpPairingEleRec
 if options['DoEleID']   : process.tnpPairs_sequence *= process.tnpPairingEleIDs
 if options['DoPhoID']   : process.tnpPairs_sequence *= process.tnpPairingPhoIDs
 
+print("inti_sequence: ",process.init_sequence + process.tag_sequence)
 ##########################################################################
 ## TnP Trees
 ##########################################################################
@@ -366,11 +367,17 @@ tnpSetup.customize( process.tnpEleReco , options )
 
 
 process.tree_sequence = cms.Sequence()
+print(process.tnpPairs_sequence)
+
 if (options['DoTrigger']): process.tree_sequence *= process.tnpEleTrig
 if (options['DoRECO'])   : process.tree_sequence *= process.tnpEleReco
 if (options['DoEleID'])  : process.tree_sequence *= process.tnpEleIDs
 if (options['DoPhoID'])  : process.tree_sequence *= process.tnpPhoIDs
 
+
+
+#process.tnpPairs_sequence *= process.tnpPairingEleHLT
+print(process.tnpPairs_sequence)
 
 ##########################################################################
 ## PATHS

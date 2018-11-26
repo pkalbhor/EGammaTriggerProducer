@@ -25,7 +25,7 @@ config = config()
 submitVersion ="2018Data_1"
 doEleTree = 'doEleID=True'
 doPhoTree = 'doPhoID=True'
-#doHLTTree = 'doTrigger=False'
+doHLTTree = 'doTrigger=False'
 #calibEn   = 'useCalibEn=False'
 
 mainOutputDir = '/store/group/phys_egamma/soffi/TnP/ntuples_06152018/%s' % submitVersion
@@ -44,7 +44,7 @@ config.Data.publication = False
 config.Data.allowNonValidInputDataset = True
 #config.Data.publishDataName = 
 
-config.Site.storageSite = 'T2_CH_CERN'
+config.Site.storageSite = 'T2_IN_TIFR'
 
 
  
@@ -83,7 +83,7 @@ if __name__ == '__main__':
 
 
     ##### now submit DATA
-    config.Data.outLFNDirBase = '%s/%s/' % (mainOutputDir,'data')
+    config.Data.outLFNDirBase = '/store/user/%s/TnPEle' % (getUsernameFromSiteDB())  #'%s/%s/' % (mainOutputDir,'data')
     config.Data.splitting     = 'LumiBased'
     config.Data.lumiMask      = '/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions18/13TeV/PromptReco/Cert_314472-317391_13TeV_PromptReco_Collisions18_JSON.txt'
     config.Data.unitsPerJob   = 100
