@@ -24,14 +24,14 @@ varOptions.register(
     )
 
 varOptions.register(
-    "doPhoID", True,
+    "doPhoID", False,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Include tree for photon ID SF"
     )
 
 varOptions.register(
-    "doTrigger", False,
+    "doTrigger", True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Include tree for Trigger SF"
@@ -78,7 +78,7 @@ varOptions.register(
     )
 
 varOptions.register(
-    "isAOD", True,
+    "isAOD", False,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "use AOD"
@@ -111,7 +111,7 @@ options['PHOTON_CUTS']          = "(abs(-log(tan(superCluster.position.theta/2))
 options['ELECTRON_TAG_CUTS']    = "(abs(-log(tan(superCluster.position.theta/2)))<=2.1) && !(1.4442<=abs(-log(tan(superClusterPosition.theta/2)))<=1.566) && pt >= 30.0"
 
 options['MAXEVENTS']            = cms.untracked.int32(varOptions.maxEvents) 
-#options['MAXEVENTS']            = 2000
+options['MAXEVENTS']            = 2000
 options['DoTrigger']            = cms.bool( varOptions.doTrigger )
 options['DoRECO']               = cms.bool( varOptions.doRECO    )
 options['DoEleID']              = cms.bool( varOptions.doEleID   )
@@ -145,11 +145,11 @@ if (varOptions.isMC):
     options['GLOBALTAG']           = 'auto:run2_mc'
 else:
     options['OUTPUT_FILE_NAME']    = "TnPTree_data.root"
-    options['TnPPATHS']            = cms.vstring("HLT_Ele32_WPTight_Gsf_L1DoubleEG_v*")
-    options['TnPHLTTagFilters']    = cms.vstring("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter","hltEGL1SingleEGOrFilter")
-    #options['TnPHLTTagFilters']    = cms.vstring("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter")
+    options['TnPPATHS']            = cms.vstring("HLT_Ele32_WPTight_Gsf_v*") #("HLT_Ele32_WPTight_Gsf_L1DoubleEG_v*")
+    #options['TnPHLTTagFilters']    = cms.vstring("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter","hltEGL1SingleEGOrFilter")
+    options['TnPHLTTagFilters']    = cms.vstring("hltEle32WPTightGsfTrackIsoFilter") #("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter")
     options['TnPHLTProbeFilters']  = cms.vstring()
-    options['HLTFILTERTOMEASURE']  = cms.vstring("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter")
+    options['HLTFILTERTOMEASURE']  = cms.vstring("hltEle32WPTightGsfTrackIsoFilter") #("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter")
     options['GLOBALTAG']           = 'auto:run2_data'
 
 if varOptions.GT != "auto" :
