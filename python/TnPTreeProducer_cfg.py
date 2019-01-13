@@ -10,14 +10,14 @@ process = cms.Process("tnpEGM")
 varOptions = VarParsing('analysis')
 
 varOptions.register(
-    "isMC", False,
+    "isMC", True,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Compute MC efficiencies"
     )
 
 varOptions.register(
-    "doEleID", True,
+    "doEleID", False,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
     "Include tree for photon ID SF"
@@ -110,8 +110,9 @@ options['SUPERCLUSTER_CUTS']    = "abs(eta)<2.5 &&  et>5.0"
 options['PHOTON_CUTS']          = "(abs(-log(tan(superCluster.position.theta/2)))<=2.5) && pt> 10"
 options['ELECTRON_TAG_CUTS']    = "(abs(-log(tan(superCluster.position.theta/2)))<=2.1) && !(1.4442<=abs(-log(tan(superClusterPosition.theta/2)))<=1.566) && pt >= 30.0"
 
-options['MAXEVENTS']            = cms.untracked.int32(varOptions.maxEvents) 
-options['MAXEVENTS']            = 2000
+#options['MAXEVENTS']            = cms.untracked.int32(varOptions.maxEvents) 
+options['MAXEVENTS']            = -1
+print options['MAXEVENTS'] 
 options['DoTrigger']            = cms.bool( varOptions.doTrigger )
 options['DoRECO']               = cms.bool( varOptions.doRECO    )
 options['DoEleID']              = cms.bool( varOptions.doEleID   )
@@ -202,10 +203,10 @@ process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 process.source = cms.Source("PoolSource",
                             fileNames = options['INPUT_FILE_NAME'],
                             )
-process.maxEvents = cms.untracked.PSet( input = options['MAXEVENTS'])
-#process.maxEvents = cms.untracked.PSet(
-#    input = cms.untracked.int32(options['MAXEVENTS'] )
-#)
+#process.maxEvents = cms.untracked.PSet( input = options['MAXEVENTS'])
+process.maxEvents = cms.untracked.PSet(
+    input = cms.untracked.int32(options['MAXEVENTS'] )
+)
 
 if options['addSUSY']    : print "  -- Including variables for SUSY       -- "
 if options['DoTrigger'] : print "  -- Producing HLT (trigger ele) efficiency tree -- "
