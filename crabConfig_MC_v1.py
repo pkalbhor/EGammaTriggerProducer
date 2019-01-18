@@ -1,7 +1,7 @@
 from CRABClient.UserUtilities import config, getUsernameFromSiteDB
 config = config()
 
-tag = '102X_TPSingleElectron_v4'
+tag = 'TnP_MC_2017_DY1Jet'
 
 config.General.requestName = tag
 config.General.workArea   = "TnPLatest"
@@ -14,10 +14,10 @@ config.JobType.psetName    = 'python/TnPTreeProducer_cfg.py'
 
 config.Data.inputDataset   = '/DY1JetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8/RunIIFall17MiniAOD-94X_mc2017_realistic_v10-v1/MINIAODSIM'#'/SingleElectron/Run2017D-31Mar2018-v1/MINIAOD'
 config.Data.inputDBS = 'global'
-config.Data.splitting       = 'LumiBased'
+config.Data.splitting       = 'FileBased'
 
 #config.JobType.outputFiles  = ['ElectronNtuple.root']#, 'DQMIO.root']
-config.Data.unitsPerJob     = 500#5000
+config.Data.unitsPerJob     = 10#5000
 #config.Data.totalUnits      = 1000000
 
 config.Data.useParent       = False #!!!!

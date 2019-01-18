@@ -58,7 +58,7 @@ filesMiniAOD_23Sep2016 = {
         ),
     
     'data' : cms.untracked.vstring( 
-        '/store/data/Run2016B/SingleElectron/MINIAOD/23Sep2016-v2/80000/08A02DC3-608C-E611-ADA5-0025905B85B6.root',
+	'/store/data/Run2016B/SingleElectron/MINIAOD/23Sep2016-v2/80000/08A02DC3-608C-E611-ADA5-0025905B85B6.root',
         '/store/data/Run2016B/SingleElectron/MINIAOD/23Sep2016-v2/80000/0C9C7188-708C-E611-A4D7-0025907DE266.root',
         '/store/data/Run2016B/SingleElectron/MINIAOD/23Sep2016-v2/80000/14415255-6B8C-E611-87D3-002590E3A212.root',
         )
@@ -76,4 +76,9 @@ filesAOD_23Sep2016 = {
         '/store/data/Run2016B/SingleElectron/AOD/23Sep2016-v2/80000/022664AC-618C-E611-B6D4-0CC47A78A3EC.root',
         '/store/data/Run2016B/SingleElectron/AOD/23Sep2016-v2/80000/02DE6A4E-6A8C-E611-9241-00259048AC76.root',
         )
+}
+
+filesMiniAOD_2016 = {
+'mc': cms.untracked.vstring(''),
+'data' : cms.untracked.vstring('/store/data/Run2016D/SingleElectron/MINIAOD/03Feb2017-v1/80000/FEE2395A-F3EA-E611-A43D-001E67A3EC05.root')
 }
