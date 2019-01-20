@@ -29,7 +29,7 @@ def setTagsProbes(process, options):
     ####################### TAG ELECTRON ############################
     process.tagEle = cms.EDProducer(eleHLTProducer,
                                         filterNames = cms.vstring(options['TnPHLTTagFilters']),
-                                        inputs      = cms.InputTag("tagEleCutBasedTight"),
+                                        inputs      = cms.InputTag("tagEleMVA94Xwp90isoV2"), #("tagEleCutBasedTight"),
                                         bits        = cms.InputTag('TriggerResults::' + options['HLTProcessName']),
                                         objects     = cms.InputTag(hltObjects),
                                         dR          = cms.double(0.3),
@@ -158,7 +158,7 @@ def setSequences(process, options):
     
     process.tag_sequence = cms.Sequence(
         process.goodElectrons             +
-        process.tagEleCutBasedTight       +
+        process.tagEleMVA94Xwp90isoV2	  + #tagEleCutBasedTight       +
         process.tagEle 
         )
 

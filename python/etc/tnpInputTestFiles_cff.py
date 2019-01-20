@@ -67,7 +67,9 @@ filesMiniAOD_2016 = {
 ),
     
     'data' : cms.untracked.vstring( 
-        '/store/data/Run2016B/SingleElectron/MINIAOD/03Feb2017_ver1-v1/100000/000E1D21-47ED-E611-85E0-0CC47A4D762A.root'
+        '/store/data/Run2016B/SingleElectron/MINIAOD/03Feb2017_ver1-v1/100000/000E1D21-47ED-E611-85E0-0CC47A4D762A.root',
+	'/store/data/Run2016B/SingleElectron/MINIAOD/03Feb2017_ver1-v1/100000/FC1E3295-0BED-E611-89C7-0CC47A4C8F08.root',
+	'/store/data/Run2016B/SingleElectron/MINIAOD/03Feb2017_ver1-v1/100000/E890926D-1AED-E611-BCFB-0CC47A7C356A.root',
         )
 }
 

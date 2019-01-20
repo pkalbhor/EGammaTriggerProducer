@@ -87,6 +87,10 @@ varOptions.register(
 
 varOptions.parseArguments()
 
+print "isMC: ", varOptions.isMC
+print "doTrigger: ", varOptions.doTrigger
+print "doEleID: ", varOptions.doEleID
+
 
 ###################################################################
 ## Define TnP inputs 
@@ -112,7 +116,8 @@ options['PHOTON_CUTS']          = "(abs(-log(tan(superCluster.position.theta/2))
 options['ELECTRON_TAG_CUTS']    = "(abs(-log(tan(superCluster.position.theta/2)))<=2.1) && !(1.4442<=abs(-log(tan(superClusterPosition.theta/2)))<=1.566) && pt >= 30.0"
 
 #options['MAXEVENTS']            = cms.untracked.int32(varOptions.maxEvents) 
-options['MAXEVENTS']            = 2000
+options['MAXEVENTS']            = -1
+print "maxEvents: ", options['MAXEVENTS']
 options['DoTrigger']            = cms.bool( varOptions.doTrigger )
 options['DoRECO']               = cms.bool( varOptions.doRECO    )
 options['DoEleID']              = cms.bool( varOptions.doEleID   )
@@ -158,6 +163,11 @@ else:
 if varOptions.GT != "auto" :
     options['GLOBALTAG'] = varOptions.GT
 
+print "TnP Trigger Path",options['TnPPATHS']
+print "TnP HLT Tag Filters", options['TnPHLTTagFilters']
+print "TnP HLT Probe Filters: ", options['TnPHLTProbeFilters']
+print "Last HLT Filter to measure: ", options['HLTFILTERTOMEASURE']
+print "Global Tag: ", options['GLOBALTAG']
 
 ###################################################################
 ## Define input files for test local run
@@ -253,6 +263,7 @@ process.tnpEleTrig = cms.EDAnalyzer("TagProbeFitTreeProducer",
                                         passingMedium94X  = cms.InputTag("probeEleCutBasedMedium94X"),
                                         passingTight94X   = cms.InputTag("probeEleCutBasedTight94X" ),
 					passingMVA94XwpLiso = cms.InputTag("probeEleMVA94XwpLiso" ),
+					passingMVA94Xwp90isoV2 = cms.InputTag("probeEleMVA94Xwp90isoV2" ),
                                         ),
                                     )
 
