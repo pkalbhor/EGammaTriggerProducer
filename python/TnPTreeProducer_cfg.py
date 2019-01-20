@@ -135,9 +135,9 @@ if (varOptions.isMC):
 #    options['TnPHLTTagFilters']    = cms.vstring()
 #    options['TnPHLTProbeFilters']  = cms.vstring()
 #    options['HLTFILTERTOMEASURE']  = cms.vstring("")
-    options['TnPPATHS']            = cms.vstring("HLT_Ele27_eta2p1_WPTight_Gsf_v*") #FOR 2016
-    options['TnPHLTTagFilters']    = cms.vstring("hltEle27erWPTightGsfTrackIsoFilter") #FOR 2016
-    options['HLTFILTERTOMEASURE']  = cms.vstring("hltEle27erWPTightGsfTrackIsoFilter") #FOR 2016
+    options['TnPPATHS']            = cms.vstring('HLT_Ele27_WPTight_Gsf*')#("HLT_Ele27_eta2p1_WPTight_Gsf_v*") #FOR 2016
+    options['TnPHLTTagFilters']    = cms.vstring('hltEle27WPTightGsfTrackIsoFilter') #("hltEle27erWPTightGsfTrackIsoFilter") #FOR 2016
+    options['HLTFILTERTOMEASURE']  = cms.vstring('hltEle27WPTightGsfTrackIsoFilter') #("hltEle27erWPTightGsfTrackIsoFilter") #FOR 2016
 #    options['TnPPATHS']            = cms.vstring("HLT_Ele32_WPTight_Gsf_L1DoubleEG_v*")
 #    options['TnPHLTTagFilters']    = cms.vstring("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter","hltEGL1SingleEGOrFilter")
     #options['TnPHLTTagFilters']    = cms.vstring("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter")
@@ -252,6 +252,7 @@ process.tnpEleTrig = cms.EDAnalyzer("TagProbeFitTreeProducer",
                                         passingLoose94X   = cms.InputTag("probeEleCutBasedLoose94X" ),
                                         passingMedium94X  = cms.InputTag("probeEleCutBasedMedium94X"),
                                         passingTight94X   = cms.InputTag("probeEleCutBasedTight94X" ),
+					passingMVA94XwpLiso = cms.InputTag("probeEleMVA94XwpLiso" ),
                                         ),
                                     )
 
