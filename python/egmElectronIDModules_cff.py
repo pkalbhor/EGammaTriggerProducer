@@ -149,6 +149,15 @@ def setIDs(process, options):
                                                 )    
     process.tagEleCutBasedTight.selection = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-tight")
 
+    process.tagEleMVA94Xwp90iso = cms.EDProducer(eleProducer,
+                                                     input     = cms.InputTag("goodElectrons"),
+                                                     cut       = cms.string(options['ELECTRON_TAG_CUTS']),
+                                                     selection = cms.InputTag("egmGsfElectronIDs:mvaEleID-Fall17-iso-V1-wp90"),
+                                                     id_cut    = cms.bool(True)
+                                                )    
+    process.tagEleMVA94Xwp90iso.selection = cms.InputTag("egmGsfElectronIDs:mvaEleID-Fall17-iso-V1-wp90")
+
+
     if options['addSUSY'] :
 
         from EgammaAnalysis.TnPTreeProducer.electronsExtrasSUSY_cff  import workingPoints

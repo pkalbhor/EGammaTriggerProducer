@@ -1,10 +1,10 @@
 from CRABClient.UserUtilities import config, getUsernameFromSiteDB
 config = config()
 
-tag = 'TnP_Data2017D_HLT_Ele27'
+tag = 'TnP_Data2017D_HLT_Ele27_MVA94Xwp90_v2'
 
 config.General.requestName = tag
-config.General.workArea   = "TnPLatest"
+config.General.workArea   = "TnP2017"
 config.General.transferOutputs = True
 config.General.transferLogs = False
 
@@ -17,8 +17,12 @@ config.Data.inputDBS = 'global'
 config.Data.splitting       = 'LumiBased'
 
 #config.JobType.outputFiles  = ['ElectronNtuple.root']#, 'DQMIO.root']
-config.Data.unitsPerJob     = 100#5000
+config.Data.unitsPerJob     = 350#5000
 #config.Data.totalUnits      = 1000000
+
+
+config.Data.lumiMask = 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions17/13TeV/ReReco/Cert_294927-306462_13TeV_EOY2017ReReco_Collisions17_JSON.txt'
+config.Data.runRange = '302030-302663'
 
 config.Data.useParent       = False #!!!!
 
@@ -26,17 +30,10 @@ config.Data.useParent       = False #!!!!
 #config.JobType.maxMemoryMB  = 2500
 #config.JobType.pyCfgParams  = ['isMC=False','doEleID=True','maxEvents=-1','doTrigger=True','isAOD=False']
 
-config.Data.outLFNDirBase = '/store/user/%s/TnPLatest' % (getUsernameFromSiteDB())
-config.Data.outputDatasetTag   = 'TnPLatest'
+config.Data.outLFNDirBase = '/store/user/%s/TnP2017' % (getUsernameFromSiteDB())
+config.Data.outputDatasetTag   = 'TnP2017'
 config.Site.storageSite     = 'T2_IN_TIFR'
+config.Data.publication = False
 
 
-from CRABAPI.RawCommand import crabCommand
-from CRABClient.ClientExceptions import ClientException
-from httplib import HTTPException
-
-
-    # We want to put all the CRAB project directories from the tasks we submit here into one common directory.
-    # That's why we need to set this parameter (here or above in the configuration file, it does not matter, we will not overwrite it).
-#config.Data.outLFNDirBase = '/store/user/pkalbhor/' + tag
 

@@ -4,7 +4,7 @@ config = config()
 tag = 'TnP_MC_2017_DY1Jet'
 
 config.General.requestName = tag
-config.General.workArea   = "TnPLatest"
+config.General.workArea   = "TnP2017"
 config.General.transferOutputs = True
 config.General.transferLogs = False
 
@@ -26,8 +26,8 @@ config.Data.useParent       = False #!!!!
 #config.JobType.maxMemoryMB  = 2500
 #config.JobType.pyCfgParams  = ['isMC=False','doEleID=True','maxEvents=-1','doTrigger=True','isAOD=False']
 
-config.Data.outLFNDirBase = '/store/user/%s/TnPLatest' % (getUsernameFromSiteDB())
-config.Data.outputDatasetTag   = 'TnPLatest'
+config.Data.outLFNDirBase = '/store/user/%s/TnP2017' % (getUsernameFromSiteDB())
+config.Data.outputDatasetTag   = 'TnP2017'
 config.Site.storageSite     = 'T2_IN_TIFR'
 
 
