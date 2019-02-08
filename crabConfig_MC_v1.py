@@ -1,7 +1,7 @@
 from CRABClient.UserUtilities import config, getUsernameFromSiteDB
 config = config()
 
-tag = 'TnP_MC_2016_DYJets'
+tag = 'TnP_MC_19-01-31'
 
 config.General.requestName = tag
 config.General.workArea   = "TnP2016"
@@ -33,11 +33,4 @@ config.Data.outputDatasetTag   = 'TnP2016'
 config.Site.storageSite     = 'T2_IN_TIFR'
 
 
-#from CRABAPI.RawCommand import crabCommand
-#from CRABClient.ClientExceptions import ClientException
-#from httplib import HTTPException
-
-
-    # We want to put all the CRAB project directories from the tasks we submit here into one common directory.
-    # That's why we need to set this parameter (here or above in the configuration file, it does not matter, we will not overwrite it).
 

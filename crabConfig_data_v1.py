@@ -1,7 +1,7 @@
 from CRABClient.UserUtilities import config, getUsernameFromSiteDB
 config = config()
 
-tag = 'TnP_Data2016D_HLT_Ele27'
+tag = 'TnP_Data_19-01-31'
 
 config.General.requestName = tag
 config.General.workArea   = "TnP2016"
@@ -17,8 +17,12 @@ config.Data.inputDBS = 'global'
 config.Data.splitting       = 'LumiBased'
 
 #config.JobType.outputFiles  = ['ElectronNtuple.root']#, 'DQMIO.root']
-config.Data.unitsPerJob     = 100#5000
+config.Data.unitsPerJob     = 500#5000
 #config.Data.totalUnits      = 1000000
+
+config.Data.lumiMask = 'https://cms-service-dqm.web.cern.ch/cms-service-dqm/CAF/certification/Collisions16/13TeV/ReReco/Final/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt'
+#'/afs/cern.ch/cms/CAF/CMSCOMM/COMM_DQM/certification/Collisions16/13TeV/ReReco/Final/Cert_271036-284044_13TeV_23Sep2016ReReco_Collisions16_JSON.txt	'
+config.Data.runRange = '276315-276811' 
 
 config.Data.useParent       = False #!!!!
 

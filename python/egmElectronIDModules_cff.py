@@ -141,23 +141,22 @@ def setIDs(process, options):
     process.probeEleCutBasedTight94XV2.selection  = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-tight"  )
 
     
-#    process.tagEleCutBasedTight = cms.EDProducer(eleProducer,
-#                                                     input     = cms.InputTag("goodElectrons"),
-#                                                     cut       = cms.string(options['ELECTRON_TAG_CUTS']),
-#                                                     selection = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-tight"),
-#                                                     id_cut    = cms.bool(True)
-#                                                )    
-#    process.tagEleCutBasedTight.selection = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-tight")
+    process.tagEleCutBasedTight = cms.EDProducer(eleProducer,
+                                                     input     = cms.InputTag("goodElectrons"),
+                                                     cut       = cms.string(options['ELECTRON_TAG_CUTS']),
+                                                     selection = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-tight"),
+                                                     id_cut    = cms.bool(True)
+                                                )    
+    process.tagEleCutBasedTight.selection = cms.InputTag("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-tight")
 
 
-    process.tagEleMVA94Xwp90isoV2 = cms.EDProducer(eleProducer, 
-							input     = cms.InputTag("goodElectrons"),
-							cut       = cms.string(options['ELECTRON_TAG_CUTS']),
-                                                     	selection = cms.InputTag("egmGsfElectronIDs:mvaEleID-Fall17-iso-V2-wp90"),  #("egmGsfElectronIDs:cutBasedElectronID-Fall17-94X-V2-tight"),
-                                                     	id_cut    = cms.bool(True)
-						)
-    process.tagEleMVA94Xwp90isoV2.selection = cms.InputTag("egmGsfElectronIDs:mvaEleID-Fall17-iso-V2-wp90")
-
+    process.tagEleMVATight = cms.EDProducer(eleProducer,
+                                                     input     = cms.InputTag("goodElectrons"),
+                                                     cut       = cms.string(options['ELECTRON_TAG_CUTS']),
+                                                     selection = cms.InputTag("egmGsfElectronIDs:mvaEleID-Fall17-iso-V1-wp90"),
+                                                     id_cut    = cms.bool(True)
+                                                )    
+    process.tagEleMVATight.selection = cms.InputTag("egmGsfElectronIDs:mvaEleID-Fall17-iso-V1-wp90")
 
     if options['addSUSY'] :
 

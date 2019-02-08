@@ -64,7 +64,7 @@ varOptions.register(
     #"GT","101X_dataRun2_Prompt_v9",
     #"GT","94X_dataRun2_ReReco_EOY17_v6",
     #"GT","80X_dataRun2_2016LegacyRepro_v4",
-    "GT","80X_mcRun2_asymptotic_2016_TrancheIV_v8",
+    "GT","80X_mcRun2_asymptotic_2016_TrancheIV_v6",
     VarParsing.multiplicity.singleton,
     VarParsing.varType.string,
     "Global Tag to be used"
@@ -116,7 +116,7 @@ options['PHOTON_CUTS']          = "(abs(-log(tan(superCluster.position.theta/2))
 options['ELECTRON_TAG_CUTS']    = "(abs(-log(tan(superCluster.position.theta/2)))<=2.1) && !(1.4442<=abs(-log(tan(superClusterPosition.theta/2)))<=1.566) && pt >= 30.0"
 
 #options['MAXEVENTS']            = cms.untracked.int32(varOptions.maxEvents) 
-options['MAXEVENTS']            = -1
+options['MAXEVENTS']            = 10001
 print "maxEvents: ", options['MAXEVENTS']
 options['DoTrigger']            = cms.bool( varOptions.doTrigger )
 options['DoRECO']               = cms.bool( varOptions.doRECO    )
@@ -140,7 +140,7 @@ if (varOptions.isMC):
 #    options['TnPHLTTagFilters']    = cms.vstring()
 #    options['TnPHLTProbeFilters']  = cms.vstring()
 #    options['HLTFILTERTOMEASURE']  = cms.vstring("")
-    options['TnPPATHS']            = cms.vstring('HLT_Ele27_WPTight_Gsf*')#("HLT_Ele27_eta2p1_WPTight_Gsf_v*") #FOR 2016
+    options['TnPPATHS']            = cms.vstring('HLT_Ele27_WPTight_Gsf_v*')#("HLT_Ele27_eta2p1_WPTight_Gsf_v*") #FOR 2016
     options['TnPHLTTagFilters']    = cms.vstring('hltEle27WPTightGsfTrackIsoFilter') #("hltEle27erWPTightGsfTrackIsoFilter") #FOR 2016
     options['HLTFILTERTOMEASURE']  = cms.vstring('hltEle27WPTightGsfTrackIsoFilter') #("hltEle27erWPTightGsfTrackIsoFilter") #FOR 2016
 #    options['TnPPATHS']            = cms.vstring("HLT_Ele32_WPTight_Gsf_L1DoubleEG_v*")
@@ -151,7 +151,7 @@ if (varOptions.isMC):
     options['GLOBALTAG']           = 'auto:run2_mc'
 else:
     options['OUTPUT_FILE_NAME']    = "TnPTree_data.root"
-    options['TnPPATHS']            = cms.vstring("HLT_Ele27_WPTight_Gsf*")#("HLT_Ele27_eta2p1_WPTight_Gsf_v*") #FOR 2016
+    options['TnPPATHS']            = cms.vstring("HLT_Ele27_WPTight_Gsf_v*")#("HLT_Ele27_eta2p1_WPTight_Gsf_v*") #FOR 2016
     options['TnPHLTTagFilters']    = cms.vstring("hltEle27WPTightGsfTrackIsoFilter")#("hltEle27erWPTightGsfTrackIsoFilter") #FOR 2016
 #    options['TnPPATHS']            = cms.vstring("HLT_Ele32_WPTight_Gsf_L1DoubleEG_v*")
 #    options['TnPHLTTagFilters']    = cms.vstring("hltEle32L1DoubleEGWPTightGsfTrackIsoFilter","hltEGL1SingleEGOrFilter")
@@ -263,7 +263,8 @@ process.tnpEleTrig = cms.EDAnalyzer("TagProbeFitTreeProducer",
                                         passingMedium94X  = cms.InputTag("probeEleCutBasedMedium94X"),
                                         passingTight94X   = cms.InputTag("probeEleCutBasedTight94X" ),
 					passingMVA94XwpLiso = cms.InputTag("probeEleMVA94XwpLiso" ),
-					passingMVA94Xwp90isoV2 = cms.InputTag("probeEleMVA94Xwp90isoV2" ),
+					passingMVA94Xwp90iso = cms.InputTag("probeEleMVA94Xwp90iso" ),
+					passingTight80X = cms.InputTag("probeEleCutBasedTight80X"),
                                         ),
                                     )
 
