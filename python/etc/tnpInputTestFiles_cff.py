@@ -9,7 +9,8 @@ filesMiniAOD_Preliminary2018 = {
         ),
 
     'data' : cms.untracked.vstring(
-        '/store/data/Run2018A/EGamma/MINIAOD/PromptReco-v1/000/315/252/00000/40343760-464B-E811-ACC9-02163E00B0CB.root',
+        '/store/data/Run2018A/EGamma/MINIAOD/PromptReco-v1/000/315/252/00000/40343760-464B-E811-ACC9-02163E00B0CB.root', #2018 Data EGamma
+        #'/store/data/Run2017B/SingleElectron/MINIAOD/17Nov2017-v1/40000/064D4B85-E9DB-E711-8B34-02163E019D0E.root',      #2017 Data SingleElectron
         )
 }
 

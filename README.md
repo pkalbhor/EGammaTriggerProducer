@@ -4,8 +4,23 @@ TnP package for EGM
 For regular users
 1. install
 
-git clone -b CMSSW_9_4_X https://github.com/cms-analysis/EgammaAnalysis-TnPTreeProducer.git EgammaAnalysis/TnPTreeProducer
+```bash
+cmsrel CMSSW_10_2_5
+cd CMSSW_10_2_5/src
+cmsenv
 
+git cms-merge-topic guitargeek:PhotonMVA_10_2_X
+git cms-merge-topic swagata87:PhoIDv2cutbased
+
+git cms-addpkg PhysicsTools/TagAndProbe
+git cms-init
+scram b -j8
+
+cd $CMSSW_BASE/src
+
+git clone -b Nm1 https://github.com/pkalbhor/EGammaTriggerProducer EgammaAnalysis/TnPTreeProducer
+    
+```
 
 
 For developpers
